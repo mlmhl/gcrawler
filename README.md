@@ -35,3 +35,17 @@ func main() {
 	s.Run()
 }
 ```
+
+## Spider
+
+A `Spider` is an independent instance of a web crawler, it receives a list of bootstrap requests, executes each requests and use a `Handler` to process the responses.
+
+You can create a new `Spider` with an `Options`. `Options` contains a series of parameters to create a custom `Spider`:
+
+- Client: The http client `Spider` used to make requests. By default, the net/http default Client will be used.
+
+- LifeTime: If set, the `Spider` will only runs for such duration.
+
+- Bootstraps: Bootstrap requests to be executed.
+
+- Concurrency: If set, no more than such requests will be executed concurrently.
