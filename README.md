@@ -49,3 +49,25 @@ You can create a new `Spider` with an `Options`. `Options` contains a series of 
 - Bootstraps: Bootstrap requests to be executed.
 
 - Concurrency: If set, no more than such requests will be executed concurrently.
+
+## Requset
+
+A `Request` is an interface that tells `Spider` which URL to fetch, and whitch HTTP method to use(i.e. "GET","HEAD",...).
+
+It is defined like so:
+
+```go
+type Request interface {
+	URL() *url.URL
+	Method() string
+	Description() string
+}
+```
+
+We recognizes a number of interfaces that the `Request` may implement, for more advanced needs.
+
+- `HeaderProvider`: Implement this interface to specify the headers of the `Request`.
+
+- `CookiesProvider`: Implement this interface to specify the cookies of the `Request`.
+
+- `ReaderProvider`: Implement this interface to specify the body of the `Request` via a `io.Reader`.
