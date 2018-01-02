@@ -71,3 +71,26 @@ We recognizes a number of interfaces that the `Request` may implement, for more 
 - `CookiesProvider`: Implement this interface to specify the cookies of the `Request`.
 
 - `ReaderProvider`: Implement this interface to specify the body of the `Request` via a `io.Reader`.
+
+## Response
+
+A `Response` is the response of a `Request`, implemented as simple wrapper of `*http.Response` with an `Error` method. It is defined like so:
+
+```go
+type Response interface {
+	Response() *http.Response
+	Error() error
+}
+```
+
+## Handler
+
+A `Handler` responds to a `Response`, it has only one method as follows:
+
+```go
+type Handler interface {
+	Handle(req request.Request, resp response.Response) (items []types.Item, successors []request.Request)
+}
+```
+
+The `Handle` method usually parses the returned data, and generates a series of `Item` and `Request`. The spider will goon processing these successors if any. An `Item` can be anything that the user wants to crawl.
