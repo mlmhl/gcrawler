@@ -94,3 +94,9 @@ type Handler interface {
 ```
 
 The `Handle` method usually parses the returned data, and generates a series of `Item` and `Request`. The spider will goon processing these successors if any. An `Item` can be anything that the user wants to crawl.
+
+## Storage
+
+A `Storage` is used to store the `Item` crawled by `Spider`. We provide two simple `Storage`: `ConsoleStorage` and `FileStorage`, which usually used for debugging.
+Just as their name implies, a `ConsoleStorage` prints all `Item` to the console, and a `FileStorage` write all `Item` to a file on local disk.
+Usually you should provide your own `Storage` in production environment.
