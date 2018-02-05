@@ -32,6 +32,8 @@ const (
 	manualStop
 )
 
+// Spider is an independent instance of a web crawler, it receives a list of
+// bootstrap requests, executes each requests and use a Handler to process the responses.
 type Spider struct {
 	*Options
 

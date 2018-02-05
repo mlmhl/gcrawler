@@ -9,6 +9,7 @@ import (
 	"github.com/mlmhl/gcrawler/storage"
 )
 
+// Options is the set of all required and optional parameters to initialize a Spider.
 type Options struct {
 	Client      *http.Client
 	Handler     handler.Handler
