@@ -15,6 +15,7 @@ type consoleStorage struct {
 	lock sync.Mutex
 }
 
+// ConsoleStorage prints all Item to the console.
 func NewConsoleStorage() Storage {
 	return &consoleStorage{}
 }

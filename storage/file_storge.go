@@ -11,6 +11,7 @@ const fileStorageName = "File"
 
 var _ Storage = FileStorage{}
 
+// FileStorage write all Item to a file on local disk.
 type FileStorage struct {
 	file *os.File
 }
