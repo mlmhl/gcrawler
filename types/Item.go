@@ -1,6 +1,6 @@
 package types
 
-// Crawler result of a web types.page.
+// An Item represents an effective record crawled by Spider.
 type Item interface {
 	Content() string
 }
